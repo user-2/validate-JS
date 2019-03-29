@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>profile</title>
+	
+</head>
+<body>
+	<form name="userprofile">
+		Name : <input id="name" type="text"> <br>
+		Email : <input id="mail" type="text"> <br>
+		Mobile Number : <input id="mobile" type="text" maxlength="10"> <br>
+		Salary :<input id="salary" type="text"> <br>
+		Designation : <input id="desig" type="text"> <br>
+		<button onclick="validateuser()">Click to validate</button>
+	</form>
+
+	<script type="text/javascript">
+		function validateuser()
+		{
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("mail").value;
+			var number = document.getElementById("mobile").value;
+			var salary = document.getElementById("salary").value;
+			var designation = document.getElementById("desig").value;
+			if(name == "" || email == "" || number == "" || salary =="" || designation == "")
+				alert("Please fill in all the fields");
+			else
+			{
+				var numberformat = /^[0-9]+/;
+				var textformat = /^[A-Za-z]+/;
+				var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+				if(name.match(textformat) && email.match(mailformat) && number.match(numberformat) && salary.match(numberformat) && designation.match(textformat))
+					alert("All details verified. Welcome "+name);
+				else
+					alert("Formats do not match!!");
+			}
+		}
+	</script>
+</body>
+</html>
